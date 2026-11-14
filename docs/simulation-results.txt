@@ -1,0 +1,22 @@
+PASS ready/start/reset and deterministic initial track (6 ms)
+PASS lane changes respond immediately, ease smoothly, and stay in three lanes (0 ms)
+PASS jump has useful height, responsive takeoff, and clean landing (1 ms)
+PASS low hurdles require jumping; high bars require sliding (2 ms)
+PASS slide cancels jump and gives a responsive fast descent (0 ms)
+PASS collision envelopes match hurdle clearance, roof height, and lane edges (1 ms)
+PASS coin pickup happens once, increments score, and respects lane/height (1 ms)
+PASS magnet pickup attracts both adjacent lanes and expires (2 ms)
+PASS hoverboard absorbs one hit, grants recovery, then later collision kills (1 ms)
+PASS board pickup/restock and timed expiration work without collisions (5 ms)
+PASS ramp is continuous, reaches train roof, and supports jumping the gap (3 ms)
+PASS entering the high side of a ramp collides instead of teleporting onto it (1 ms)
+PASS moving trains continue approaching until normal behind-player despawn (2 ms)
+PASS speed grows gradually and has a stable upper limit (9 ms)
+PASS many generated chunks leave an adjacent, unobstructed route and transition time (42 ms)
+  Maximum live entities across route runs: 155
+PASS real fixed-step runs survive 640 chunks across 10 seeds without shielding (3184 ms)
+  50 km in 1638.3 simulated seconds; max 155 live entities; 16393 coins
+PASS a 50 km run remains stable with bounded entities and finite state (2463 ms)
+
+17/17 gameplay tests passed.
+
