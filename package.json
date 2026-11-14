@@ -1,0 +1,14 @@
+{
+  "name": "fable-surfers",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "An original browser-based 3D endless runner",
+  "scripts": {
+    "start": "node server.cjs",
+    "test": "node tests/simulation.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
