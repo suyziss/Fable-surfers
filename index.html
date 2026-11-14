@@ -16,7 +16,9 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <section id="loading" class="loading-screen" aria-live="polite">
-    <strong>FABLE SURFERS</strong><span>Готовим твой маршрут…</span>
+    <div class="loading-mark">FABLE<span>SURFERS</span></div>
+    <div class="loading-track"><span></span></div>
+    <p>Готовим твой маршрут…</p>
   </section>
 
   <section id="menu" class="menu-overlay">
@@ -39,17 +41,28 @@
   </section>
 
   <section id="hud" class="hud" hidden>
-    <div class="hud-top">
-      <div class="stat-card"><span>СЧЁТ</span><strong id="score">0</strong></div>
-      <div class="stat-card"><span>РЕКОРД</span><strong id="best">0</strong></div>
-      <div class="stat-card"><span>МОНЕТЫ</span><strong id="coins">000</strong></div>
-      <button id="mute-button" class="icon-button" type="button" aria-label="Отключить звук">♫</button>
-      <button id="pause-button" class="icon-button" type="button" aria-label="Пауза">Ⅱ</button>
+    <div class="hud-left">
+      <div class="score-card">
+        <span class="micro-label">СЧЁТ</span><strong id="score" class="score-number">0</strong>
+        <div class="best-line">РЕКОРД <strong id="best">0</strong></div>
+      </div>
+      <div class="coin-card"><span class="coin-symbol">✦</span><strong id="coins">000</strong></div>
     </div>
-    <div class="hud-bottom">
-      <div class="speed-card"><strong id="speed">0</strong><span>КМ/Ч</span><span id="multiplier">×1</span></div>
-      <div class="powerups"><span id="board-status">B · ХОВЕРБОРД</span><span id="magnet-status">МАГНИТ</span><span id="board-count">3</span></div>
+    <div class="hud-right">
+      <div class="hud-actions">
+        <button id="mute-button" class="icon-button" type="button" aria-label="Отключить звук" aria-pressed="false">♫</button>
+        <button id="pause-button" class="icon-button" type="button" aria-label="Пауза">Ⅱ</button>
+        <button id="cinema-button" class="icon-button" type="button" aria-label="Режим кино">H</button>
+        <button id="fullscreen-button" class="icon-button" type="button" aria-label="Полный экран">⛶</button>
+      </div>
+      <div class="speed-card"><strong id="speed">0</strong><span>КМ/Ч</span><span id="multiplier" class="multiplier">0 м</span></div>
     </div>
+    <div class="power-tray">
+      <div class="board-inventory"><span class="board-icon">▰</span><span><small>ХОВЕРБОРД</small><strong><span id="board-count">3</span> / <kbd>B</kbd></strong></span></div>
+      <div id="board-status" class="power-chip"><span>◇</span><span>ЗАЩИТА АКТИВНА</span></div>
+      <div id="magnet-status" class="power-chip magnet-chip"><span>∩</span><span>МАГНИТ</span></div>
+    </div>
+    <div class="run-hint"><kbd>←</kbd><kbd>→</kbd> путь <span>·</span> <kbd>↑</kbd> прыжок <span>·</span> <kbd>↓</kbd> подкат</div>
   </section>
 
   <section id="touch-controls" class="touch-controls" hidden aria-label="Сенсорное управление">
@@ -57,22 +70,27 @@
     <button type="button" data-action="jump" aria-label="Прыжок">↑</button>
     <button type="button" data-action="slide" aria-label="Подкат">↓</button>
     <button type="button" data-action="right" aria-label="Вправо">→</button>
+    <button type="button" data-action="board" aria-label="Ховерборд">B</button>
   </section>
 
   <section id="game-over" class="modal-overlay" hidden>
-    <div class="modal-card">
+    <div class="result-card">
       <p class="eyebrow">ЗАБЕГ ЗАВЕРШЁН</p>
-      <h2>Ещё один маршрут?</h2>
-      <p>Город ждёт твоего следующего рекорда.</p>
-      <p id="result-label" class="result-label">ПОГОНЯ ОКОНЧЕНА</p>
-      <div class="result-grid"><div>ТВОЙ СЧЁТ<strong id="final-score">0</strong></div><div>МОНЕТЫ<strong id="final-coins">0</strong></div><div>ЛУЧШИЙ ЗАБЕГ<strong id="final-best">0</strong></div></div>
+      <h2>Ещё один<br>маршрут?</h2>
+      <p class="result-description">Город ждёт твоего следующего рекорда.</p>
+      <p id="result-label" class="micro-label">ПОГОНЯ ОКОНЧЕНА</p>
+      <div class="result-score"><span class="micro-label">ТВОЙ СЧЁТ</span><strong id="final-score">0</strong></div>
+      <div class="result-stats">
+        <div><span class="micro-label">МОНЕТЫ</span><strong><span class="small-coin">✦</span> <span id="final-coins">0</span></strong></div>
+        <div><span class="micro-label">ЛУЧШИЙ ЗАБЕГ</span><strong id="final-best">0</strong></div>
+      </div>
       <button id="restart-button" class="primary-button" type="button"><span>Бежать снова</span><span class="button-arrow">↗</span></button>
       <p class="start-hint">Enter или Пробел — ещё раз</p>
     </div>
   </section>
 
   <section id="pause-menu" class="modal-overlay" hidden>
-    <div class="modal-card">
+    <div class="pause-card">
       <p class="eyebrow">В ТВОЁМ РИТМЕ</p><h2>Пауза.</h2>
       <p>Переведи дыхание — маршрут подождёт.</p>
       <button id="resume-button" class="primary-button" type="button"><span>Продолжить</span><span class="button-arrow">→</span></button>
@@ -80,10 +98,6 @@
     </div>
   </section>
 
-  <div class="utility-controls">
-    <button id="cinema-button" type="button" aria-label="Режим кино">H</button>
-    <button id="fullscreen-button" type="button" aria-label="Полный экран">⛶</button>
-  </div>
   <script type="module" src="./js/game.js"></script>
 </body>
 </html>
