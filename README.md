@@ -26,16 +26,15 @@ npm start
 
 Open **http://127.0.0.1:43827** in your browser.
 
-To run the simulation tests:
+Run the simulation tests with:
 
 ```bash
 npm test
 ```
 
-## Run on Android (Termux)
+## Android (Termux)
 
-1. Install Termux from its official F-Droid or GitHub distribution.
-2. In Termux:
+Install Termux from its official distribution, then run:
 
 ```bash
 pkg update && pkg upgrade
@@ -45,78 +44,48 @@ cd Fable-surfers
 npm start
 ```
 
-3. Keep Termux running and open **http://127.0.0.1:43827** in Chrome or another Android browser on the same phone.
-4. To stop the server, press `Ctrl+C` in Termux.
+Keep Termux running and open **http://127.0.0.1:43827** in Chrome or another browser on the same phone. Stop the server with `Ctrl+C`.
 
-Alternative without npm:
+Alternative:
 
 ```bash
 node server.cjs
 ```
 
-Then open the same local address. The game is browser-based; Termux runs only its local web server.
-
 ## Windows
 
-### Method 1 — PowerShell launcher
+Install Node.js 20+ (22 LTS recommended).
 
-Install Node.js 20+ (22 LTS recommended), open PowerShell in the project folder and run:
+**PowerShell launcher:**
 
 ```powershell
 Set-ExecutionPolicy -Scope Process Bypass
 .\Start.ps1
 ```
 
-The launcher starts the local server and opens the browser. To start without opening a browser:
+To start without automatically opening a browser: `.Start.ps1 -NoBrowser`. Stop with `.Stop.ps1`.
+
+**Command Prompt:** double-click `Start.cmd`; stop with `Stop.cmd`.
+
+**Direct Node.js / npm:**
 
 ```powershell
-.\Start.ps1 -NoBrowser
-```
-
-Stop it with:
-
-```powershell
-.\Stop.ps1
-```
-
-### Method 2 — Command Prompt
-
-Double-click `Start.cmd`, or run it from Command Prompt. Stop with `Stop.cmd`.
-
-### Method 3 — Node.js directly
-
-```powershell
-npm install
-npm start
-```
-
-Open **http://127.0.0.1:43827**. Press `Ctrl+C` to stop.
-
-## Linux
-
-### Method 1 — npm
-
-Install Node.js 20+ using your distribution's package manager or a Node.js version manager, then:
-
-```bash
-npm start
-```
-
-### Method 2 — start script
-
-```bash
-bash start.sh
-```
-
-Open **http://127.0.0.1:43827**. Stop with `bash stop.sh`.
-
-### Method 3 — direct Node.js
-
-```bash
 node server.cjs
 ```
 
-Press `Ctrl+C` to stop.
+or `npm start`. Open **http://127.0.0.1:43827** and press `Ctrl+C` to stop.
+
+## Linux
+
+Install Node.js 20+.
+
+**npm:** `npm start`
+
+**Launcher:** `bash start.sh`; stop with `bash stop.sh`.
+
+**Direct:** `node server.cjs`; stop with `Ctrl+C`.
+
+Open **http://127.0.0.1:43827**.
 
 ## Controls
 
@@ -125,14 +94,15 @@ Press `Ctrl+C` to stop.
 | Change lane | A / D or ← / → | Swipe left / right |
 | Jump | Space / ↑ / W | Swipe up |
 | Slide | S / ↓ | Swipe down |
-| Hoverboard | B | Double tap |
+| Hoverboard | B | Double tap or touch button |
 | Pause | Esc | Pause button |
 | Sound | M | Sound button |
 
 ## Notes
 
 - The server binds to `127.0.0.1`; it is intended for local play on the same device.
-- Best score and settings are stored in the browser's localStorage.
-- The portable Windows Node.js binary previously used during development is intentionally not committed. Install Node.js normally instead.
-- Screenshots and test reports may be added in a later documentation pass.
+- Best score and settings are stored in browser localStorage.
+- The portable Windows Node.js binary from the development folder is intentionally excluded. Install Node.js normally instead.
+- `QA.md` and `docs/simulation-results.txt` are historical reports from the source project (September 2026); they have not been independently rerun against this GitHub upload.
+- The original Dropbox folder contained screenshots, but the binary screenshots were not included in this source upload.
 - See [THIRD-PARTY.md](THIRD-PARTY.md) for dependency and license information and [docs/LAUNCH_GUIDE_RU.md](docs/LAUNCH_GUIDE_RU.md) for the detailed Russian guide.
